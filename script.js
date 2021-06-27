@@ -17,6 +17,11 @@ function countdown(minutes) {
     tick();
 }
 
+var localStorage = window.localStorage;
+localStorage.setItem('counter', 'counter');
+let myValue = localStorage.getItem('counter');
+console.log(counter)
+
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
