@@ -17,10 +17,12 @@ function countdown(minutes) {
     tick();
 }
 
+function log_console() {
 var localStorage = window.localStorage;
 localStorage.setItem('counter', 'counter');
-let myValue = localStorage.getItem('counter');
+let score = localStorage.getItem('counter');
 console.log(counter)
+}
 
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
@@ -81,7 +83,7 @@ function selectAnswer(e) {
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
      nextButton.classList.remove('hide')
     } else {
-      startButton.innerText = 'Store Result & Restart'
+      startButton.innerText = 'Restart'
       startButton.classList.remove('hide')
     }
 }

@@ -40,18 +40,15 @@ body {
 }
 
 #title {
-    position: absolute;
-    top: 150px;
+    position: relative;
 }
 
 .correct::after {
     position: absolute;
-    content: "Correct";
-    bottom: 305px;
+    content: "correct";
 }
 
 .wrong::after {
     position: absolute;
-    content: "Incorrect";
-    bottom: 305px;
+    content: "incorrect";
 }
