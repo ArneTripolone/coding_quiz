@@ -1,3 +1,4 @@
+//timer function borrowed from here: https://gist.github.com/adhithyan15/4350689 
 function countdown(minutes) {
     var seconds = 60;
     var mins = minutes
@@ -17,13 +18,19 @@ function countdown(minutes) {
     tick();
 }
 
+//console logs the time left. Ran out of time to get this data and present it as a high score
 function log_console() {
 var localStorage = window.localStorage;
 localStorage.setItem('counter', 'counter');
-let score = localStorage.getItem('counter');
 console.log(counter)
 }
 
+localStorage.getItem('counter')
+
+/*much of the functionality is derived from here: https://www.youtube.com/watch?v=riDzcEQbX6k 
+This seemed to be the most efficient and elegant code to produce a quiz I could find */
+
+//gets all relevant elements from html 
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
@@ -38,14 +45,17 @@ nextButton.addEventListener('click', () => {
     setNextQuestion() 
 }) 
 
-function startGame() {
-    startButton.classList.add('hide')
-    shuffledQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex = 0
+/* startGame function starts the game. The add and remove hide css classes below
+makes the start button dissapear and the question container appear*/
+function startGame() {   
+    startButton.classList.add('hide') 
+    shuffledQuestions = questions.sort(() => Math.random() - .5) //gives a random array
+    currentQuestionIndex = 0 //starts on the first question
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
 }
 
+//this function sets the next question when the next button is clicked
 function setNextQuestion() {
     resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
@@ -53,7 +63,7 @@ function setNextQuestion() {
 
 function showQuestion(question) {
     questionElement.innerText = question.question
-    question.answers.forEach(answer => {
+    question.answers.forEach(answer => { //loops through answers
         const button = document.createElement('button')
         button.innerText = answer.text
         button.classList.add('btn')
@@ -65,19 +75,20 @@ function showQuestion(question) {
     })
 }
 
+//resets everything back to default state every time there is a new question
 function resetState() {
     clearStatusClass(document.body)
   nextButton.classList.add('hide')
-  while (answerButtonsElement.firstChild) {
+  while (answerButtonsElement.firstChild) { //loops through all children for answer button elements
       answerButtonsElement.removeChild(answerButtonsElement.firstChild)
   } 
 }
 
-function selectAnswer(e) {
+function selectAnswer(e) { //takes event in as a parameter
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
     setStatusClass(document.body, correct)
-    Array.from(answerButtonsElement.children).forEach(button => {
+    Array.from(answerButtonsElement.children).forEach(button => { //changes from live collection to an array to work with for each loop
         setStatusClass(button, button.dataset.correct)
     })
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
@@ -88,6 +99,7 @@ function selectAnswer(e) {
     }
 }
 
+//sets status based on whether selected answer was correct or wrong
 function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
@@ -102,6 +114,8 @@ function clearStatusClass(element) {
     element.classList.remove('wrong')
 }
 
+/*List of questions. I can add as many/few questions as desired here, and with as many
+answers per question desired. Utilises objects, elements and arrays */
 const questions = [
     {
         question: 'Which of the following links a css style sheet to a html document?',
@@ -129,11 +143,14 @@ const questions = [
     }
 ]
 
+/*this idea came from https://www.youtube.com/watch?v=_LYxkClHnV0. It applies a correct or wrong classes
+and enabled me to appky css pseudo-classes to answers */
 const classToApply = 'wrong';
     if (selectAnswer == currentQuestionIndex) {
         classToApply = 'correct';
     }
 
+//listens for click of timer and commences countdown
 document.addEventListener('click',function(event){
     if(event.target.id==='start-btn'){
         countdown(1)

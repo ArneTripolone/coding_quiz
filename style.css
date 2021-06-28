@@ -49,6 +49,14 @@ body {
 }
 
 .wrong::after {
-    position: absolute;
+    position: absolute top;
     content: "incorrect";
+}
+
+#counter {
+    position: initial;
+}
+
+.console-btn {
+    display: none;
 }
