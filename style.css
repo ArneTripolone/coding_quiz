@@ -49,7 +49,7 @@ body {
 }
 
 .wrong::after {
-    position: absolute top;
+    position: absolute;
     content: "incorrect";
 }
 
@@ -58,5 +58,5 @@ body {
 }
 
 .console-btn {
-    display: none;
+    position: absolute
 }
