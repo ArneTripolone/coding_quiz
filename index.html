@@ -18,27 +18,27 @@
                 <button class="btn">Answer 3</button>
                 <button class="btn">Answer 4</button>
             </div>
-        </div>
-        <div>
-            <p id="title">Coding Quiz Challenge</p>
-        </div>  
+        </div> 
         <div class="controls">
-            <button id="start-btn" class="start-btn btn">Start Quiz</button>
+            <button id="start-btn" class="start-btn btn">Start Coding Quiz Challenge</button>
             <button id="next-btn" class="next-btn btn hide">Next</button>
         </div>
         <div>
             <p id="counter"></p>
         </div>
-        <button class="console-btn btn" onclick="log_console()">
-            Log Score
+        <button id="logbtn" class="console-btn btn" onclick="log_console()">
+            Done - Stop the Clock!
         </button>
         <br>
-        <form id="scoreboard" hidden>
-            <label for="name">initials:</label><br><br>
-            <input type="text" id="fname" name="fname" value="John"><br>
-            <input type="submit" value="Submit">
-          </form> 
-        </form>
+        <br>
+        <br>
+        <fieldset class="initial">
+            <input id="initials" type="text" placeholder="Type your initials to save your score">
+            <h1></h1> Scoreboard
+            <button id="initialsbtn">save</button>
+            <ul id="scorelist"></ul>
+        </fieldset>
+    </form> 
     </div>
 </body>
 </html>

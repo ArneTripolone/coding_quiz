@@ -12,6 +12,16 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.highscores {
+    display: flex;
+    position: sticky;
+    bottom: 0px;
+    align-items: center;
+
+}
+
+
 .btn-grid {
     display: grid;
     gap: 5px;

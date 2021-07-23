@@ -18,21 +18,17 @@ function countdown(minutes) {
     tick();
 }
 
-//console logs the time left. Ran out of time to get this data and present it as a high score
-
-
 //var score = JSON.parse(localStorage.counter); turns back into an object
 //console.log(localStorage.getItem('counter'));
 //localStorage.valueOf(counter) - run this in inspector to see the string
 
-
 function log_console() {
+counter.classList.add("hide");
+document.getElementById("logbtn").classList.add("hide");
 var localStorage = window.localStorage;
-localStorage.setItem('counter', JSON.stringify(counter.innerHTML))
+localStorage.setItem('score', JSON.stringify(counter.innerHTML))
 console.log(counter)
 }
-
-
 
 /*much of the functionality is derived from here: https://www.youtube.com/watch?v=riDzcEQbX6k 
 This seemed to be the most efficient and elegant code to produce a quiz I could find */
@@ -101,7 +97,7 @@ function selectAnswer(e) { //takes event in as a parameter
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
      nextButton.classList.remove('hide')
     } else {
-      startButton.innerText = 'Restart'
+      startButton.innerText = 'Done'
       startButton.classList.remove('hide')
     }
 }
@@ -162,4 +158,19 @@ document.addEventListener('click',function(event){
     if(event.target.id==='start-btn'){
         countdown(1)
     }
-  }); 
+  });
+
+const initals = document.getElementById("initials");
+const btnSave = document.getElementById("initialsbtn");
+const lsOutput = document.getElementById("highScores");
+
+btnSave.onclick = function () {
+    const key = initals.value;
+    const value = localStorage.getItem('score');
+    console.log(key);
+    console.log(value)
+}
+
+document.getElementById("scorelist").textContent=localStorage.getItem('score')
+
+//localStorage.getItem('score')
