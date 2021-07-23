@@ -19,13 +19,20 @@ function countdown(minutes) {
 }
 
 //console logs the time left. Ran out of time to get this data and present it as a high score
+
+
+//var score = JSON.parse(localStorage.counter); turns back into an object
+//console.log(localStorage.getItem('counter'));
+//localStorage.valueOf(counter) - run this in inspector to see the string
+
+
 function log_console() {
 var localStorage = window.localStorage;
-localStorage.setItem('counter', 'counter');
+localStorage.setItem('counter', JSON.stringify(counter.innerHTML))
 console.log(counter)
 }
 
-localStorage.getItem('counter')
+
 
 /*much of the functionality is derived from here: https://www.youtube.com/watch?v=riDzcEQbX6k 
 This seemed to be the most efficient and elegant code to produce a quiz I could find */
