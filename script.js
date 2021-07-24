@@ -1,7 +1,7 @@
-const initals = document.getElementById("initials");
+const initials = document.getElementById("initials");
 const btnSave = document.getElementById("initialsbtn");
 const lsOutput = document.getElementById("highScores");
-let highScores = [] 
+let highScores = []
 
 //timer function borrowed from here: https://gist.github.com/adhithyan15/4350689 
 function countdown(minutes) {
@@ -39,8 +39,8 @@ document.getElementById("logbtn").addEventListener("click", function() {
     document.getElementById("scorefield").classList.add("show");
   });
 
-//const initals = document.getElementById("initials");
-localStorage.setItem('initials', JSON.stringify(initials.innerHTML));
+//const initials = document.getElementById("initials");
+localStorage.setItem('initials', JSON.stringify(initials.value));
 //localStorage.getItem('initials')
 
 
@@ -203,7 +203,7 @@ document.addEventListener('click',function(event){
   });
 
 btnSave.onclick = function () {
-    const key = initals.value;
+    const key = initials.value;
     const value = localStorage.getItem('score');
     console.log(key);
     console.log(value)
@@ -224,18 +224,8 @@ btnSave.onclick = function () {
 
 //document.getElementById("scorelist").textContent=localStorage.getItem('score')
 
-var playerScore = {
-    initial: localStorage.getItem('initials'),
-    score: localStorage.getItem('score'),
- }
-
-highScores.push(playerScore)
-console.log(highScores)
-
-console.log(localStorage)
-
 //loops through local storage and appends the latest score to the scoreboard
-initials.addEventListener('click', function(){
+document.getElementById('initialsbtn').addEventListener('click', function(){
     var list = document.getElementById("scorelist");
     for (var i = 0; i < localStorage.length; i++){
       if(localStorage.key(i).indexOf("score") !== -1){
@@ -246,3 +236,16 @@ initials.addEventListener('click', function(){
     }
 })
 //console.log(highScores[0].score)
+
+console.log(localStorage);
+console.log(highScores)
+
+var playerScore = {
+    initial: localStorage.getItem('key'),
+    score: localStorage.getItem('score'),
+ }
+
+document.getElementById('initialsbtn').addEventListener('click', function(){
+    highScores.push(playerScore)
+    console.log(highScores)
+})
