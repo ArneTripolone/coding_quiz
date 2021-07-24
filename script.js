@@ -236,16 +236,14 @@ document.getElementById('initialsbtn').addEventListener('click', function(){
     }
 })
 //console.log(highScores[0].score)
-
-console.log(localStorage);
-console.log(highScores)
-
-var playerScore = {
-    initial: localStorage.getItem('key'),
-    score: localStorage.getItem('score'),
- }
+//console.log(localStorage);
+//console.log(highScores)
 
 document.getElementById('initialsbtn').addEventListener('click', function(){
+    var playerScore = {
+        initial: document.getElementById('initials').value,
+        score: localStorage.getItem('score'),
+    }
     highScores.push(playerScore)
     console.log(highScores)
 })
