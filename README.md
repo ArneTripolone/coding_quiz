@@ -1,4 +1,4 @@
-# coding_quiz### Necessary Corrections
+Recent Corrections Based on Feedback
 - Save initials and scores to local storage
 - Deduct time on wrong answer 
 
