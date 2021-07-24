@@ -1,3 +1,7 @@
+const initals = document.getElementById("initials");
+const btnSave = document.getElementById("initialsbtn");
+const lsOutput = document.getElementById("highScores");
+
 //timer function borrowed from here: https://gist.github.com/adhithyan15/4350689 
 function countdown(minutes) {
     var seconds = 60;
@@ -29,6 +33,18 @@ var localStorage = window.localStorage;
 localStorage.setItem('score', JSON.stringify(counter.innerHTML))
 console.log(counter)
 }
+
+//const initals = document.getElementById("initials");
+localStorage.setItem('initials', JSON.stringify(initials.innerText));
+console.log('initials')
+
+console.log(localStorage)
+/*function log_initials() {
+    var localStorage = window.localStorage;
+    localStorage.setItem('initials', JSON.stringify(initials.innerHTML))
+    console.log(initials)
+    }
+*/
 
 /*much of the functionality is derived from here: https://www.youtube.com/watch?v=riDzcEQbX6k 
 This seemed to be the most efficient and elegant code to produce a quiz I could find */
@@ -97,7 +113,7 @@ function selectAnswer(e) { //takes event in as a parameter
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
      nextButton.classList.remove('hide')
     } else {
-      startButton.innerText = 'Done'
+      startButton.innerText = 'The End! Log score below '
       startButton.classList.remove('hide')
     }
 }
@@ -160,17 +176,16 @@ document.addEventListener('click',function(event){
     }
   });
 
-const initals = document.getElementById("initials");
-const btnSave = document.getElementById("initialsbtn");
-const lsOutput = document.getElementById("highScores");
-
 btnSave.onclick = function () {
     const key = initals.value;
     const value = localStorage.getItem('score');
     console.log(key);
     console.log(value)
+
+    if (key && value) {
+        localStorage.setItem(key, value);
+        location.reload();
+    }
 }
 
 document.getElementById("scorelist").textContent=localStorage.getItem('score')
-
-//localStorage.getItem('score')

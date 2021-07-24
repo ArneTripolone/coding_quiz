@@ -55,12 +55,12 @@ body {
 
 .correct::after {
     position: absolute;
-    content: "correct";
+    content: "...correct";
 }
 
 .wrong::after {
     position: absolute;
-    content: "incorrect";
+    content: "...incorrect";
 }
 
 #counter {
