@@ -1,6 +1,8 @@
+
 const initals = document.getElementById("initials");
 const btnSave = document.getElementById("initialsbtn");
 const lsOutput = document.getElementById("highScores");
+let highScores = [] 
 
 //timer function borrowed from here: https://gist.github.com/adhithyan15/4350689 
 function countdown(minutes) {
@@ -35,10 +37,10 @@ console.log(counter)
 }
 
 //const initals = document.getElementById("initials");
-localStorage.setItem('initials', JSON.stringify(initials.innerText));
-//console.log('initials')
+localStorage.setItem('initials', JSON.stringify(initials.innerHTML));
 
-console.log(localStorage)
+console.log.valueOf('initials');
+
 /*function log_initials() {
     var localStorage = window.localStorage;
     localStorage.setItem('initials', JSON.stringify(initials.innerHTML))
@@ -188,13 +190,23 @@ btnSave.onclick = function () {
     }
 }
 
-for (let i = 0; i < localStorage.length; i++) {
+/*for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     const value = localStorage.getItem(key);
     lsOutput.innerHTML += localStorage.key 
 
 }
-document.getElementById("scorelist").textContent=localStorage.getItem('score')
+*/
+//document.getElementById("scorelist").textContent=localStorage.getItem('score')
+
+var playerScore = {
+    initial: localStorage.getItem('initials'),
+    score: localStorage.getItem('score'),
+ }
+
+highScores.push(playerScore)
+console.log(highScores)
 
 //lsOutput.innerHTML += `${key}: ${value}<br />`;
 //document.getElementById("scorelist").textContent=localStorage.getItem('score')
+console.log(localStorage)
