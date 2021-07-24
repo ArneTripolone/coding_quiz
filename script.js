@@ -142,26 +142,48 @@ const questions = [
         answers: [
             { text: 'href="style.css"', correct: true },
             { text: 'href="script.js"', correct: false },
-            { text: 'src="script.js"', correct: false }
+            { text: 'src="script.js"', correct: false },
+            { text: 'src="style"', correct: false }
         ] 
     },
     {
         question: 'What is JS short for?',
         answers: [
-            { text: 'Java Script', correct: true },
             { text: 'Job Saver', correct: false },
-            { text: 'Nothing', correct: false }
+            { text: 'JavaScript', correct: true },
+            { text: 'Nothing', correct: false },
+            { text: 'JSON', correct: false }
         ] 
     },
     {
-        question: 'Do you like coding?',
+        question: 'What is node.js?',
         answers: [
-            { text: 'Yes', correct: true },
-            { text: 'No', correct: false },
-            { text: 'Maybe', correct: false },
+            { text: 'Abnormal tissue growth', correct: false },
+            { text: 'An application', correct: false },
+            { text: 'A platform to build websites', correct: true },
+            { text: 'A server', correct: false }
         ] 
-    }
+    },
+    {
+        question: 'Which of the following is an example of a variable',
+        answers: [
+            { text: 'variable', correct: false },
+            { text: 'varied = 32', correct: false },
+            { text: 'vary = 32', correct: false },
+            { text: 'var score = 32', correct: true },
+        ] 
+    },
+    {
+        question: 'What does the command line do?',
+        answers: [
+            { text: 'Process commands', correct: true },
+            { text: 'Build APIs', correct: false },
+            { text: 'It does not relate to coding', correct: false },
+            { text: 'Run an operating system', correct: false }
+        ] 
+    },
 ]
+
 
 /*this idea came from https://www.youtube.com/watch?v=_LYxkClHnV0. It applies a correct or wrong classes
 and enabled me to appky css pseudo-classes to answers */
