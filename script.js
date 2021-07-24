@@ -35,6 +35,10 @@ localStorage.setItem('score', JSON.stringify(counter.innerHTML))
 console.log(counter)
 }
 
+document.getElementById("logbtn").addEventListener("click", function() {
+    document.getElementById("scorefield").classList.add("show");
+  });
+
 //const initals = document.getElementById("initials");
 localStorage.setItem('initials', JSON.stringify(initials.innerHTML));
 //localStorage.getItem('initials')
@@ -184,7 +188,6 @@ const questions = [
     },
 ]
 
-
 /*this idea came from https://www.youtube.com/watch?v=_LYxkClHnV0. It applies a correct or wrong classes
 and enabled me to appky css pseudo-classes to answers */
 const classToApply = 'wrong';
@@ -207,7 +210,7 @@ btnSave.onclick = function () {
 
     if (key && value) {
         localStorage.setItem(key, value);
-        location.reload();
+        //location.reload();
     }
 }
 
@@ -232,7 +235,7 @@ console.log(highScores)
 console.log(localStorage)
 
 //loops through local storage and appends the latest score to the scoreboard
-window.addEventListener("DOMContentLoaded", function(){
+initials.addEventListener('click', function(){
     var list = document.getElementById("scorelist");
     for (var i = 0; i < localStorage.length; i++){
       if(localStorage.key(i).indexOf("score") !== -1){
@@ -243,4 +246,3 @@ window.addEventListener("DOMContentLoaded", function(){
     }
 })
 //console.log(highScores[0].score)
-
