@@ -36,7 +36,7 @@ console.log(counter)
 
 //const initals = document.getElementById("initials");
 localStorage.setItem('initials', JSON.stringify(initials.innerText));
-console.log('initials')
+//console.log('initials')
 
 console.log(localStorage)
 /*function log_initials() {
@@ -113,7 +113,7 @@ function selectAnswer(e) { //takes event in as a parameter
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
      nextButton.classList.remove('hide')
     } else {
-      startButton.innerText = 'The End! Log score below '
+      startButton.innerText = 'The End! Stop clock below'
       startButton.classList.remove('hide')
     }
 }
@@ -188,4 +188,13 @@ btnSave.onclick = function () {
     }
 }
 
+for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+    lsOutput.innerHTML += localStorage.key 
+
+}
 document.getElementById("scorelist").textContent=localStorage.getItem('score')
+
+//lsOutput.innerHTML += `${key}: ${value}<br />`;
+//document.getElementById("scorelist").textContent=localStorage.getItem('score')
