@@ -1,4 +1,3 @@
-
 const initals = document.getElementById("initials");
 const btnSave = document.getElementById("initialsbtn");
 const lsOutput = document.getElementById("highScores");
@@ -38,8 +37,8 @@ console.log(counter)
 
 //const initals = document.getElementById("initials");
 localStorage.setItem('initials', JSON.stringify(initials.innerHTML));
+//localStorage.getItem('initials')
 
-console.log.valueOf('initials');
 
 /*function log_initials() {
     var localStorage = window.localStorage;
@@ -197,6 +196,7 @@ btnSave.onclick = function () {
 
 }
 */
+
 //document.getElementById("scorelist").textContent=localStorage.getItem('score')
 
 var playerScore = {
@@ -207,6 +207,18 @@ var playerScore = {
 highScores.push(playerScore)
 console.log(highScores)
 
-//lsOutput.innerHTML += `${key}: ${value}<br />`;
-//document.getElementById("scorelist").textContent=localStorage.getItem('score')
 console.log(localStorage)
+
+//loops through local storage and appends the latest score to the scoreboard
+window.addEventListener("DOMContentLoaded", function(){
+    var list = document.getElementById("scorelist");
+    for (var i = 0; i < localStorage.length; i++){
+      if(localStorage.key(i).indexOf("score") !== -1){
+        var item = document.createElement("li");
+        item.textContent = localStorage.getItem(localStorage.key(i));
+        list.appendChild(item);
+      }
+    }
+})
+//console.log(highScores[0].score)
+
