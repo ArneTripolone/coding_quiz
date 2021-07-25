@@ -16,7 +16,7 @@ function countdown(minutes) {
             setTimeout(tick, 1000);
         } else {
             if(mins > 1){
-                countdown(mins-1);          
+                countdown(mins-1);
             }
         }
     }
@@ -224,6 +224,7 @@ btnSave.onclick = function () {
 
 //document.getElementById("scorelist").textContent=localStorage.getItem('score')
 
+/*
 //loops through local storage and appends the latest score to the scoreboard
 document.getElementById('initialsbtn').addEventListener('click', function(){
     var list = document.getElementById("scorelist");
@@ -235,6 +236,7 @@ document.getElementById('initialsbtn').addEventListener('click', function(){
       }
     }
 })
+*/
 //console.log(highScores[0].score)
 //console.log(localStorage);
 //console.log(highScores)
@@ -246,6 +248,7 @@ document.getElementById('initialsbtn').addEventListener('click', function(){
     }
     highScores.push(playerScore);
     localStorage.setItem('highscores', JSON.stringify(highScores));
+    //JSON.parse(highScores)
     //let highScores = localStorage.getItem(highScores) || [];
     console.log(highScores)
 })
@@ -253,3 +256,11 @@ document.getElementById('initialsbtn').addEventListener('click', function(){
 //document.getElementById("scorelist").innerHTML = highScores
 //console.log(highScores)
 //document.getElementById("scorelist").textContent=highScores
+
+var array = highScores;
+for (i = 0; i < array.length; i++) {
+  var li = document.createElement("li");
+  var text = document.createTextNode(array[i]);
+  li.appendChild(text);
+  document.getElementById("scorelist").appendChild(li);
+}
