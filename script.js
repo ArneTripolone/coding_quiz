@@ -244,6 +244,12 @@ document.getElementById('initialsbtn').addEventListener('click', function(){
         initial: document.getElementById('initials').value,
         score: localStorage.getItem('score'),
     }
-    highScores.push(playerScore)
+    highScores.push(playerScore);
+    localStorage.setItem('highscores', JSON.stringify(highScores));
+    //let highScores = localStorage.getItem(highScores) || [];
     console.log(highScores)
 })
+
+//document.getElementById("scorelist").innerHTML = highScores
+//console.log(highScores)
+//document.getElementById("scorelist").textContent=highScores
